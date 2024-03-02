@@ -93,7 +93,13 @@ class BoardController: NSObject,
   // to check the before/after value of goalWord and see if it changes to the correct theme
   private func applyThemeSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
-    // ...
+      // Step 1: Fetch the theme value using optional binding
+         if let rawTheme = settings[kWordThemeKey] as? String,
+            // Step 2: Convert the string to a WordTheme
+            let theme = WordTheme(rawValue: rawTheme) {
+             // Step 3: Generate the new goal word and assign it
+             goalWord = WordGenerator.generateGoalWord(with: theme)
+         }
     // END YOUR CODE HERE
   }
   
