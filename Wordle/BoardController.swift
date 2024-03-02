@@ -76,7 +76,11 @@ class BoardController: NSObject,
   // Checkpoint: Correctly implementing this should allow you to change the number of rows in the board!
   private func applyNumGuessesSettings(with settings: [String: Any]) {
     // START YOUR CODE HERE
-    // ...
+      // Attempt to retrieve and cast the value for the number of guesses from the settings dictionary
+          if let numGuesses = settings[kNumGuessesKey] as? Int {
+              // If successful, update the numRows property with the new number of guesses
+              numRows = numGuesses
+          }
     // END YOUR CODE HERE
   }
   
